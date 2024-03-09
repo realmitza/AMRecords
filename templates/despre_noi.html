@@ -1,0 +1,15 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Despre noi {% endblock %}</h1>
+    <p>Suntem on firma ...</p>
+    <div class="content">
+        {% for angajat in angajati %}
+            <div class="angajat">
+                <b>
+                    <a href="{{ url_for('angajat', id=angajat.id) }}">{{ angajat.nume }}, {{ angajat.prenume }} </a>
+                </b>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

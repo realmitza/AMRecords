@@ -1,0 +1,14 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} Servicii {% endblock %}</h1>
+    <div class="content">
+        {% for serviciu in servicii %}
+            <div class="serviciu">
+                <b>
+                    <a href="{{ url_for('serviciu', id=serviciu.id) }}">{{ serviciu.nume }}</a>
+                </b>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

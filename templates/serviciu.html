@@ -1,0 +1,9 @@
+{% extends 'baza.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} {{ serviciu.nume }} {% endblock %}</h1>
+    <div class="content">
+        <p>{{ serviciu.nume }}</p>
+        <p>{{ serviciu.pret }}</p>
+    </div>
+{% endblock %}
