@@ -6,12 +6,14 @@
         <p><strong>Nume:</strong> {{ angajat.nume }}</p>
         <p><strong>Prenume:</strong> {{ angajat.prenume }}</p>
         <p><strong>Functie:</strong> {{ angajat.functie }}</p>
-        <p><strong>Servicii:</strong></p>
-        <ul>
-            {% for serviciu in angajat.functie.servicii %}
-                <li>{{ serviciu.nume }} - {{ serviciu.descriere }}</li>
-            {% endfor %}
-        </ul>
+        {% if angajat.functie.servicii %}
+            <p><strong>Servicii:</strong></p>
+            <ul>
+                {% for serviciu in angajat.functie.servicii %}
+                    <li>{{ serviciu.nume }} - {{ serviciu.descriere }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
     </div>
 {% endblock %}
