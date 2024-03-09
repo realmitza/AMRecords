@@ -21,7 +21,7 @@ class Angajat(db.Model):
     functie_id = db.Column(db.Integer, db.ForeignKey('functie.id'), nullable=False)
 
     def __repr__(self):
-        return f'<Angajat {self.nume}, {self.prenume}>'
+        return f'{self.nume}, {self.prenume}'
 
 class Functie(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -31,7 +31,7 @@ class Functie(db.Model):
     servicii = db.relationship('Serviciu', backref='functie', lazy=True)
 
     def __repr__(self):
-        return f'<Functie {self.functia}>'
+        return f'{self.functia}'
 
 class Serviciu(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -41,8 +41,31 @@ class Serviciu(db.Model):
     functie_id = db.Column(db.Integer, db.ForeignKey('functie.id'), nullable=False)
 
     def __repr__(self):
-        return f'<Serviciu {self.nume}>'
+        return f'{self.nume}'
 
 @app.route('/')
 def index():
-    return 'Test'
+    return render_template('index.html')
+
+@app.route('/servicii/<int:id>')
+def serviciu(id):
+    # Retrieve the serviciu object based on the provided id
+    serviciu = Serviciu.query.get_or_404(id)
+    # Pass the serviciu object to the template
+    return render_template('serviciu.html', serviciu=serviciu)
+@app.route('/servicii')
+def servicii():
+    servicii = Serviciu.query.all()
+    return render_template('servicii.html', servicii=servicii)
+
+@app.route('/despre_noi')
+def despre_noi():
+    angajati = Angajat.query.all()
+    return render_template('despre_noi.html', angajati=angajati)
+
+@app.route('/angajati/<int:id>')
+def angajat(id):
+    # Retrieve the serviciu object based on the provided id
+    angajat = Angajat.query.get_or_404(id)
+    # Pass the serviciu object to the template
+    return render_template('angajat.html', angajat=angajat)
