@@ -49,9 +49,7 @@ def index():
 
 @app.route('/servicii/<int:id>')
 def serviciu(id):
-    # Retrieve the serviciu object based on the provided id
     serviciu = Serviciu.query.get_or_404(id)
-    # Pass the serviciu object to the template
     return render_template('serviciu.html', serviciu=serviciu)
 @app.route('/servicii')
 def servicii():
@@ -65,7 +63,5 @@ def despre_noi():
 
 @app.route('/angajati/<int:id>')
 def angajat(id):
-    # Retrieve the serviciu object based on the provided id
     angajat = Angajat.query.get_or_404(id)
-    # Pass the serviciu object to the template
     return render_template('angajat.html', angajat=angajat)

@@ -4,43 +4,26 @@
     <meta charset="UTF-8">
     <title>{% block title %} {% endblock %} - AM Records</title>
     <style>
-        .title {
-            margin: 5px;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
-        .content {
-            margin: 5px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-        }
-
-        .student {
-            flex: 20%;
+        nav {
+            background-color: #004835;
+            color: #ffffff;
             padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3;
-            inline-size: 100%;
-        }
-
-        .bio {
-            padding: 10px;
-            margin: 5px;
-            background-color: #ffffff;
-            color: #004835;
-        }
-
-        .name a {
-            color: #00a36f;
-            text-decoration: none;
         }
 
         nav a {
-            color: #d64161;
-            font-size: 3em;
-            margin-left: 50px;
+            color: #ffffff;
             text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .content {
+            margin: 20px;
         }
     </style>
 </head>
@@ -48,7 +31,6 @@
     <nav>
         <a href="{{ url_for('index') }}">AM Records</a>
         <a href="{{ url_for('servicii') }}">Servicii</a>
-        <a href="#">Create</a>
         <a href="{{ url_for('despre_noi') }}">Despre noi</a>
     </nav>
     <hr>

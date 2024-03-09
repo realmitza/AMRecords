@@ -3,8 +3,8 @@
 {% block content %}
     <h1 class="title">{% block title %} {{ angajat.nume }}, {{ angajat.prenume }} {% endblock %}</h1>
     <div class="content">
-        <p>{{ angajat.nume }}</p>
-        <p>{{ angajat.prenume }}</p>
-        <p>Functie: {{ angajat.functie }}</p>
+        <p><strong>Nume:</strong> {{ angajat.nume }}</p>
+        <p><strong>Prenume:</strong> {{ angajat.prenume }}</p>
+        <p><strong>Functie:</strong> {{ angajat.functie }}</p>
     </div>
 {% endblock %}
