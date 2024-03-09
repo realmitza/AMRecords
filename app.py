@@ -35,6 +35,14 @@ class Angajat(db.Model):
     def __repr__(self):
         return f'<Angajat {self.nume}, {self.prenume}>'
 
+class Functie(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    functia = db.Column(db.String(200), nullable=False)
+    responsabilitati = db.Column(db.Text)
+    #angajati
+
+    def __repr__(self):
+        return f'<Functie {self.functia}>'
 
 @app.route('/')
 def index():
